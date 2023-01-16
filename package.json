@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/divaprotocol/twitter-bets#readme",
 	"dependencies": {
+		"@material-tailwind/react": "^1.2.5",
 		"axios": "^1.2.1",
 		"d3": "^7.7.0",
 		"downloadjs": "^1.4.7",
