@@ -8,69 +8,101 @@ import {
 
 const FAQ_ITEMS_DATA = [
 	{
-		title: 'What is DIVA Protocol?',
+		title: 'What is DIVA ViZ?',
 		body: (
 			<>
-				DIVA Protocol is a smart contract that allows its users to create and
-				settle fully customizable event-driven products also known as
-				derivatives. It is the operation system for all kinds of derivative
-				applications including insurance, prediction markets, structured
-				products as well as event-driven conditional donations. Users can choose
-				any public data feed as the underlying (e.g., the price of an asset or a
-				basket of assets, the TVL locked in DeFi, Ethereum gas price, Bitcoin
-				hash rate, the average temperature, etc.) and combine it with a wide
-				range of possible payoff profiles (binary, linear, convex, or concave)
-				to create truly unique products that do not yet exist in DeFi and the
-				traditional financial world.
-			</>
-		),
-	},
-	{
-		title: 'How can I use DIVA Protocol?',
-		body: (
-			<>
-				Head over to the
-				<a
-					href="https://www.divaprotocol.io/dapps"
+				DIVA ViZ is an application that allows you to visually represent derivative 
+				product offers created using the<a
+					href="https://app.diva.finance/"
 					className="underline mx-1"
 					target={'_blank'}>
-					dApps
+					DIVA App
+				</a>. By using DIVA ViZ, you can enhance 
+				the presentation of your product offers by attaching an attractive illustration 
+				when sharing the link via email, chat, or social media with potential counterparties.
+			</>
+		),
+	},
+	{
+		title: 'What is the DIVA App?',
+		body: (
+			<>
+				The<a
+					href="https://app.diva.finance/"
+					className="underline mx-1"
+					target={'_blank'}>
+					DIVA App
+				</a> is a universal app that combines multiple web3 protocols including<a
+					href="https://www.divaprotocol.io/"
+					className="underline mx-1"
+					target={'_blank'}>
+					DIVA
+				</a>,<a
+					href="https://www.0x.org/"
+					className="underline mx-1"
+					target={'_blank'}>
+					0x
+				</a>, as well as<a
+					href="https://tellor.io/"
+					className="underline mx-1"
+					target={'_blank'}>
+					Tellor Protocol
+				</a>to offer
+				users a one-stop solution to create, trade and settle derivative products. By using DIVA ViZ, you can enhance 
+				the presentation of your product offers by attaching an attractive illustration 
+				when sharing the link via email, chat, or social media with potential counterparties.
+			</>
+		),
+	},
+	{
+		title: 'How can I use DIVA ViZ?',
+		body: (
+			<>
+				The first step is to create a derivative product offer using the DIVA App. For this, 
+				navigate to the "Create" page on the
+				<a
+					href="https://app.diva.finance/Create"
+					className="underline mx-1"
+					target={'_blank'}>
+					DIVA App
 				</a>
-				page to find all the applications that have been built on top of DIVA
-				Protocol. They allow you to create bets, insurances, structured products
-				and conditional donations on virtually anything and share it with
-				anyone.
+				, select the "Create Offer" option, and configure the offer according to your preferences. Once you have signed the offer with your private key 
+				on step 3, copy the offer hash from the link provided (example format: 0x0ca6...1e67) and paste it into the 
+				designated field on the<a
+					href="https://divaviz.com"
+					className="underline mx-1"
+					target={'_blank'}>
+					DIVA ViZ
+				</a> homepage. This will generate a visually appealing card, which you can then 
+				download and share via email, chat, or social media along with the offer link.
 			</>
 		),
 	},
 	{
-		title: 'What can I build using DIVA Protocol?',
+		title: 'How can users fill the product offers?',
 		body: (
 			<>
-				DIVA Protocol is a decentralized and permissionless piece of
-				infrastructure that allows its users to create and settle fully
-				customizable event-driven products also known as derivatives. Users can
-				choose any public data feed as the underlying (e.g., the price of an
-				asset or a basket of assets, the TVL locked in DeFi, Ethereum gas price,
-				Bitcoin hash rate, the average temperature, etc.) and combine it with a
-				wide range of possible payoff profiles (binary, linear, convex, or
-				concave) to create truly unique products that do not yet exist in DeFi
-				and the traditional financial world.
+				Currently, DIVA ViZ serves as a standalone visualization tool, requiring counterparties to fill 
+				offers through the DIVA App by following the link shared by the offer creator (example link: https://app.diva.finance/offer/0xafca...3bc4). Our ultimate goal is 
+				to integrate the functionality of offer creation, claim process, and filling offers directly within 
+				the DIVA ViZ app, providing a more seamless user experience.
 			</>
 		),
 	},
 	{
-		title: 'What are the utilities of DIVA Token?',
+		title: 'Are there any other templates available?',
 		body: (
 			<>
-				DIVA is the native token that is used to govern the DIVA Protocol. There
-				will be a maximum of 100m tokens in circulation. The tokenomics were
-				designed to be simple and at the same time flexible enough to adapt to
-				the various stages of the protocol lifecycle as well as constantly
-				changing market conditions. Holding DIVA tokens allows users to vote
-				protocol parameters such as fees as well as on how to spend the DIVA
-				treasury funds. Latter may include voting on grants, fee rebates, token
-				buyback programs etc.
+				Currently, only one template is available for visualizing product offers. We aim to expand this 
+				selection over time by introducing additional templates to provide users with more options to choose from, 
+				tailored to their specific product use case. If you are a designer interested in contributing 
+				to this effort and gaining recognition within the DIVA community, please reach out to us on
+				<a
+					href="https://discord.gg/8fAvUspmv3"
+					className="underline mx-1"
+					target={'_blank'}>
+					Discord
+				</a>.
 			</>
 		),
 	},
