@@ -1,15 +1,18 @@
 import Layout from '../components/Layout'
 import '../styles/globals.css'
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ThemeProvider } from '@material-tailwind/react'
 
 const queryClient = new QueryClient()
 
 export default function MyApp({ Component, pageProps }) {
 	return (
 		<QueryClientProvider client={queryClient}>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<ThemeProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</ThemeProvider>
 		</QueryClientProvider>
 	)
 }
