@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 const Header = () => {
 	return (
@@ -18,8 +19,11 @@ const Header = () => {
 						</div>
 					</div>
 				</Link>
-				<div className="text-base cursor-pointer opacity-70">
-					<Link href="/faq">FAQ</Link>
+				<div className="flex gap-8 items-center">
+					<div className="text-base cursor-pointer opacity-70">
+						<Link href="/faq">FAQ</Link>
+					</div>
+					<ConnectButton />
 				</div>
 			</div>
 		</>
