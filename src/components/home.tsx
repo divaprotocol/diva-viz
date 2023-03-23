@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import { isUrl } from '../utils/misc'
 
 const home = () => {
 	const [isButtonClicking, setIsButtonClicking] = React.useState<boolean>(false)
@@ -14,9 +15,19 @@ const home = () => {
 	}, [])
 
 	const handleClick = () => {
-		if (inputPoolId.length > 0) {
+		let ID = inputPoolId
+
+		// checking if the input is a url format
+		const isUrlFormat = isUrl(inputPoolId)
+		if (isUrlFormat) {
+			const segments = inputPoolId.split('/')
+			const lastSegment = segments[segments.length - 1]
+			ID = lastSegment
+		}
+
+		if (inputPoolId.length > 0 && ID.length) {
 			router.push({
-				pathname: `/${inputPoolId}`,
+				pathname: `/${ID}`,
 			})
 		} else {
 			setError('Please enter a pool hash')
@@ -53,9 +64,9 @@ const home = () => {
 				</div>
 				Generate your offer post to share with the world
 			</div>
-			<div className="mt-11">
+			<div className="mt-11 w-fit">
 				<input
-					className={`w-[28.75rem] h-[3.75rem] border-[0.4px] ${
+					className={`min-w-[28.75rem] w-fit h-[3.75rem] border-[0.4px] ${
 						error ? 'border-red-400' : 'border-x-sky-50'
 					}  bg-black placeholder:text-center uppercase text-center focus:placeholder-transparent font-text font-bold focus:outline-none text-xs tracking-widest placeholder:tracking-widest text-[#8A8A8A]`}
 					type="text"
