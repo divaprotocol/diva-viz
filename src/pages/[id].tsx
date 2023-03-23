@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import PoolOffer from '../components/poolOffer'
 import { useWhitelist } from '../hooks/useWhitelist'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -12,6 +12,7 @@ const PoolDetails = () => {
 	const [isPoolLoading, setIsPoolLoading] = useState(false)
 	const dataSource = useWhitelist()
 	const [dataSourceName, setDataSourceName] = useState('')
+	const [isErrorFetching, setIsErrorFetching] = useState(false)
 	const { id } = router.query
 
 	useEffect(() => {
@@ -24,9 +25,11 @@ const PoolDetails = () => {
 					setPoolData(data.data)
 					setIsPoolLoading(false)
 				})
-				.catch((err) => {
-					console.error(err)
-					setIsPoolLoading(false)
+				.catch((err: AxiosError) => {
+					setIsErrorFetching(true)
+					if (err.response!.status === 500) {
+						setIsPoolLoading(false)
+					}
 				})
 		}
 	}, [id])
@@ -58,23 +61,39 @@ const PoolDetails = () => {
 				</div>
 			</button>
 			<div className="flex flex-col items-center justify-center bg-black">
-				<h1 className="text-6xl font-bold font-cirka tracking-wider">
-					Your offer post is here!
-				</h1>
-				<div className="text-xl font-text text-[#D2D2D2] mt-6 font-light">
-					You can now share this across the world to get your offer filled
-				</div>
-				{isPoolLoading || !poolData ? (
-					<div className="mt-6">
-						<Skeleton
-							width={861.51}
-							height={500}
-							baseColor="#202020"
-							highlightColor="#444"
-						/>
+				{isErrorFetching ? (
+					<div className="text-xl font-text text-[#D2D2D2] font-light mt-10">
+						<h1 className="text-6xl font-bold text-center capitalize">
+							Offer not found
+						</h1>
+						<div className="text-xl font-text text-[#D2D2D2] mt-6 font-light">
+							This offer is unavailable because it was already filled, expired
+							or considered invalid
+						</div>
 					</div>
 				) : (
-					<PoolOffer pool={{ ...poolData, dataSourceName: dataSourceName }} />
+					<>
+						<h1 className="text-6xl font-bold font-cirka tracking-wider">
+							Your offer post is here!
+						</h1>
+						<div className="text-xl font-text text-[#D2D2D2] mt-6 font-light">
+							You can now share this across the world to get your offer filled
+						</div>
+						{isPoolLoading || !poolData ? (
+							<div className="mt-6">
+								<Skeleton
+									width={861.51}
+									height={500}
+									baseColor="#202020"
+									highlightColor="#444"
+								/>
+							</div>
+						) : (
+							<PoolOffer
+								pool={{ ...poolData, dataSourceName: dataSourceName }}
+							/>
+						)}
+					</>
 				)}
 			</div>
 		</div>
