@@ -28,9 +28,6 @@ const PoolDetails = () => {
 				.catch((err: AxiosError) => {
 					setIsErrorFetching(true)
 					if (err.response!.status === 500) {
-						console.log(
-							'This offer is unavailable because it was already filled, expired or'
-						)
 						setIsPoolLoading(false)
 					}
 				})
@@ -70,8 +67,8 @@ const PoolDetails = () => {
 							Offer not found
 						</h1>
 						<div className="text-xl font-text text-[#D2D2D2] mt-6 font-light">
-							This offer is unavailable because it was expired or considered
-							invalid.
+							This offer is unavailable because it was already filled, expired
+							or considered invalid
 						</div>
 					</div>
 				) : (
