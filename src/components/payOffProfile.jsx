@@ -240,20 +240,20 @@ export function PayoffProfile(props) {
 			.style('stroke-width', '3px')
 			.attr('class', 'line')
 
-		svg
-			.append('rect')
-			.attr('x', width - 25)
-			.attr('y', height + 20)
-			.attr('width', 25)
-			.attr('height', 3)
-			.style('fill', '#90CAF9')
-			.style('opacity', function () {
-				if (longDirection == true) {
-					return 0
-				} else {
-					return 1
-				}
-			})
+		// svg
+		// 	.append('rect')
+		// 	.attr('x', width - 25)
+		// 	.attr('y', height + 20)
+		// 	.attr('width', 25)
+		// 	.attr('height', 3)
+		// 	.style('fill', '#90CAF9')
+		// 	.style('opacity', function () {
+		// 		if (longDirection == true) {
+		// 			return 0
+		// 		} else {
+		// 			return 1
+		// 		}
+		// 	})
 
 		svg
 			.append('rect')
