@@ -3,7 +3,7 @@ import Header from './Header'
 
 const Layout = ({ children }) => {
 	return (
-		<div className="bg-black h-screen relative">
+		<div className="bg-black h-screen relative w-screen overflow-hidden">
 			<div className="absolute top-0 left-0 pointer-events-none">
 				<img src={'./bg-pattern.svg'} alt="pattern-wave" />
 			</div>
