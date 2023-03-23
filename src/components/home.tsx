@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { staggerContainer, textVariant } from '../utils/motion'
 import { motion } from 'framer-motion'
+import { isUrl } from '../utils/misc'
 
 const home = () => {
 	const [isButtonClicking, setIsButtonClicking] = React.useState<boolean>(false)
@@ -16,9 +17,19 @@ const home = () => {
 	}, [])
 
 	const handleClick = () => {
-		if (inputPoolId.length > 0) {
+		let ID = inputPoolId
+
+		// checking if the input is a url format
+		const isUrlFormat = isUrl(inputPoolId)
+		if (isUrlFormat) {
+			const segments = inputPoolId.split('/')
+			const lastSegment = segments[segments.length - 1]
+			ID = lastSegment
+		}
+
+		if (inputPoolId.length > 0 && ID.length) {
 			router.push({
-				pathname: `/${inputPoolId}`,
+				pathname: `/${ID}`,
 			})
 		} else {
 			setError('Please enter a pool hash')
