@@ -19,7 +19,7 @@ const PoolDetails = () => {
 		if (id) {
 			setIsPoolLoading(true)
 			axios(
-				'https://eip712api.xyz/diva/offer/v1/' + 'create_contingent_pool/' + id
+				'https://goerli.eip712api.xyz/diva/offer/v1/' + 'create_contingent_pool/' + id
 			)
 				.then((data) => {
 					setPoolData(data.data)
