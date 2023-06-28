@@ -17,19 +17,16 @@ const home = () => {
 	}, [])
 
 	const handleClick = () => {
-		let ID = inputPoolId
-
 		// checking if the input is a url format
 		const isUrlFormat = isUrl(inputPoolId)
-		if (isUrlFormat) {
-			const segments = inputPoolId.split('/')
-			const lastSegment = segments[segments.length - 1]
-			ID = lastSegment
-		}
 
-		if (inputPoolId.length > 0 && ID.length) {
+		if (inputPoolId.length > 0 && inputPoolId.length && isUrlFormat) {
+			const segments = inputPoolId.split('/')
+			const hash = segments[segments.length - 1]
+			const chain = segments[segments.length - 2]
+
 			router.push({
-				pathname: `/${ID}`,
+				pathname: `/id/${chain}/${hash}`,
 			})
 		} else {
 			setError('Please enter a pool hash')

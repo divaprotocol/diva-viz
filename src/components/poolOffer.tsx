@@ -141,7 +141,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					{/* Left side */}
 					<div className="mt-4">
 						<div className="absolute top-0 left-0 pointer-events-none">
-							<img src={'./bg-pattern.svg'} alt="pattern-wave" />
+							<img src={'/bg-pattern.svg'} alt="pattern-wave" />
 						</div>
 
 						<div className="pt-4 font-text ">
@@ -201,7 +201,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 							</div>
 							<div className="flex items-center">
 								<div className="mr-2">
-									<img src="./shine-color-icons.svg" alt="max" />
+									<img src="/shine-color-icons.svg" alt="max" />
 								</div>
 								<div className="font-text">
 									<div className="text-xl text-[#1AD3FF]"> Max yield</div>
@@ -215,7 +215,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 						<div className="mt-8 flex flex-col gap-3 w-[520px]">
 							<div className="border-[0.4px] border-[#8A8A8A] flex text-xs px-4 py-2 items-center gap-1 font-text">
 								<div className="mr-3">
-									<img src="./up-arrow.svg" alt="up" />
+									<img src="/up-arrow.svg" alt="up" />
 								</div>
 								<div className="text-[#76FFC6]">
 									<strong>
@@ -240,7 +240,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 							</div>
 							<div className="border-[0.4px] border-[#8A8A8A] flex text-xs px-4 py-2 items-center gap-1 font-text">
 								<div className="mr-2">
-									<img src="./equal-arrow.svg" alt="up" />
+									<img src="/equal-arrow.svg" alt="up" />
 								</div>
 								<div className="text-[#89A5E3]">
 									{isLong ? (
@@ -267,7 +267,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 
 							<div className="border-[0.4px] border-[#8A8A8A] flex text-xs px-4 py-2 items-center gap-1 font-text">
 								<div className="mr-3">
-									<img src="./down-arrow.svg" alt="up" />
+									<img src="/down-arrow.svg" alt="up" />
 								</div>
 								<div className="text-[#F47564]">
 									<strong>
@@ -322,12 +322,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 						<div className="mt-8">
 							<div className="font-text flex items-center justify-end gap-3">
 								<div>
-									<img
-										src="./diva_logo.svg"
-										alt="diva"
-										width={50}
-										height={34}
-									/>
+									<img src="/diva_logo.svg" alt="diva" width={50} height={34} />
 								</div>
 								<div>
 									<div className="text-[#1AD3FF] text-xs">Powered by</div>
@@ -370,7 +365,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					}}
 					className="flex items-center justify-center gap-2 text-[#8A8A8A] border-[1px] border-[#8A8A8A] px-3 py-1 font-text">
 					<div>
-						<img src="./download-vector.svg" alt="download" />
+						<img src="/download-vector.svg" alt="download" />
 					</div>
 					<div>Download</div>
 				</button>
@@ -390,7 +385,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					) : (
 						<>
 							<div>
-								<img src="./copy-vector.svg" alt="copy" />
+								<img src="/copy-vector.svg" alt="copy" />
 							</div>
 							<div>Copy Link</div>
 						</>
@@ -402,7 +397,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					title={'Sharing the DIVA ViZ'}>
 					<div className="flex items-center justify-center gap-2 text-[#8A8A8A] border-[1px] border-[#8A8A8A] px-3 py-1 font-text">
 						<div>
-							<img src="./twitter-logo.svg" alt="twitter" />
+							<img src="/twitter-logo.svg" alt="twitter" />
 						</div>
 						<div>Share on Twitter</div>
 					</div>

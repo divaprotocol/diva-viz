@@ -21,5 +21,30 @@ const TOKEN_WITH_ICONS = {
     WBTC: "BTC",
 }
 
+export enum SupportedChainId {
+    POLYGON = 137,
+    POLYGON_MUMBAI = 80001,
+}
+
+type ChainInfo = {
+    readonly name: string
+    readonly chainID: number
+    readonly offer: string
+}
+
+
+export const CHAIN_INFO: { [key: number]: ChainInfo } = {
+    [SupportedChainId.POLYGON]: {
+        name: 'Polygon',
+        chainID: 137,
+        offer: 'https://polygon.eip712api.xyz/diva/offer/v1/',
+    },
+    [SupportedChainId.POLYGON_MUMBAI]: {
+        name: 'Mumbai',
+        chainID: 80001,
+        offer: 'https://mumbai.eip712api.xyz/diva/offer/v1/',
+    }
+}
+
 
 export { divaAddress, TOKEN_WITH_ICONS }

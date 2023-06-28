@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import PoolOffer from '../components/poolOffer'
-import { useWhitelist } from '../hooks/useWhitelist'
+import PoolOffer from '../../components/poolOffer'
+import { useWhitelist } from '../../hooks/useWhitelist'
 import axios, { AxiosError } from 'axios'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { CHAIN_INFO } from '../../constant'
 
 const PoolDetails = () => {
 	const router = useRouter()
@@ -13,13 +14,15 @@ const PoolDetails = () => {
 	const dataSource = useWhitelist()
 	const [dataSourceName, setDataSourceName] = useState('')
 	const [isErrorFetching, setIsErrorFetching] = useState(false)
-	const { id } = router.query
+	const { slug } = router.query
 
 	useEffect(() => {
-		if (id) {
+		if (slug) {
+			const chainId = Number(slug[0])
+			const offerHash = slug[1]
 			setIsPoolLoading(true)
 			axios(
-				'https://goerli.eip712api.xyz/diva/offer/v1/' + 'create_contingent_pool/' + id
+				`${CHAIN_INFO[chainId].offer}` + 'create_contingent_pool/' + offerHash
 			)
 				.then((data) => {
 					setPoolData(data.data)
@@ -32,7 +35,7 @@ const PoolDetails = () => {
 					}
 				})
 		}
-	}, [id])
+	}, [slug])
 
 	useEffect(() => {
 		if (poolData?.dataProvider) {
@@ -55,7 +58,7 @@ const PoolDetails = () => {
 				}}>
 				<div className="flex items-center px-16 text-[#8A8A8A] text-base font-text">
 					<div className="mr-2">
-						<img src="./nav-arrow.svg" alt="arrow" width={32} />
+						<img src="/nav-arrow.svg" alt="arrow" width={32} />
 					</div>
 					<div>Back to Home</div>
 				</div>
