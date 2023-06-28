@@ -93,7 +93,11 @@ const PoolDetails = () => {
 							</div>
 						) : (
 							<PoolOffer
-								pool={{ ...poolData, dataSourceName: dataSourceName }}
+								pool={{
+									...poolData,
+									dataSourceName: dataSourceName,
+									chainId: Number(slug[0]),
+								}}
 							/>
 						)}
 					</>

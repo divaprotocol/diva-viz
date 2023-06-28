@@ -348,7 +348,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 				<a
 					className="underline"
 					target={'_blank'}
-					href={`https://app.diva.finance/offer/${pool.offerHash}`}>{` https://app.diva.finance/offer/${pool.offerHash}`}</a>
+					href={`https://app.diva.finance/offer/${pool.chainId}/${pool.offerHash}`}>{` https://app.diva.finance/offer/${pool.chainId}/${pool.offerHash}`}</a>
 			</div>
 
 			<div className="mt-2 flex gap-2">
@@ -373,7 +373,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					onClick={() => {
 						setIsCopyButtonClick(true)
 						navigator.clipboard.writeText(
-							`https://divaviz.com/${pool.offerHash}}`
+							`https://divaviz.com/id/${pool.chainId}/${pool.offerHash}}`
 						)
 						setTimeout(() => {
 							setIsCopyButtonClick(false)
@@ -393,7 +393,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 				</button>
 
 				<TwitterShareButton
-					url={`https://app.diva.finance/offer/${pool.offerHash}`}
+					url={`https://app.diva.finance/offer/${pool.chainId}/${pool.offerHash}`}
 					title={'Sharing the DIVA ViZ'}>
 					<div className="flex items-center justify-center gap-2 text-[#8A8A8A] border-[1px] border-[#8A8A8A] px-3 py-1 font-text">
 						<div>
