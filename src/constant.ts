@@ -1,4 +1,5 @@
 const divaAddress = '0x659f8bF63Dce2548eB4D9b4BfF6883dddFde4848'
+const tellorAddress = '0x7950db13cc37774614b0aa406e42a4c4f0bf26a6'
 
 const TOKEN_WITH_ICONS = {
     ADA: "ADA",
@@ -47,4 +48,4 @@ export const CHAIN_INFO: { [key: number]: ChainInfo } = {
 }
 
 
-export { divaAddress, TOKEN_WITH_ICONS }
+export { divaAddress, TOKEN_WITH_ICONS, tellorAddress }

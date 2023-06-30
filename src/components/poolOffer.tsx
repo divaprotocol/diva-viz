@@ -7,6 +7,7 @@ import { PayoffProfile } from './payOffProfile'
 import ERC20 from '../abi/ERC20ABI.json'
 import Web3 from 'web3'
 import { getAssetImage, getUnderlyingTokenImage } from '../utils/token'
+import { tellorAddress } from '../constant.ts'
 
 const PayoffChart = ({
 	pool,
@@ -305,7 +306,15 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 						{/* data provider */}
 						<div className="flex gap-2 items-center justify-center  text-xs font-text bg-[#FFFFFF] border-[0.4px] border-[#0D0D0D] w-fit h-[33px] mt-6 px-2">
 							<div className="text-black font-medium">Data Provider:</div>
-							<div className="text-black text-xs">{pool.dataSourceName}</div>
+							<div className="text-black text-xs">
+								<div>
+									{pool.dataSourceName === tellorAddress ? (
+										<img src="/tellor-data.svg" alt="tellor" />
+									) : (
+										pool.dataSourceName
+									)}
+								</div>
+							</div>
 						</div>
 					</div>
 
