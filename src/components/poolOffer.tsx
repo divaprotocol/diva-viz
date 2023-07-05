@@ -345,10 +345,11 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					{/* horizontal line  */}
 					<div className="border-[0.4px] border-[#8A8A8A] w-full"></div>
 					<div className="font-text text-[#8A8A8A] text-[10px] mt-1">
-						Risk Disclaimer: Website and the information contained herein is not
-						intended to be a source of advice or credit analysis with respect to
-						the material presented, and the information and/or documents
-						contained in this website do not constitute investment advice.
+						Risk Disclaimer: Participation in derivative contracts carries risks, including the potential 
+						loss of invested capital. It is important to thoroughly review and understand the contract 
+						terms, conditions, and associated risks. Only invest funds that you are willing to lose. 
+						The issuer of this offer does not guarantee specific outcomes or results. Users are advised 
+						to exercise caution and conduct their own due diligence when making investment decisions.
 					</div>
 				</div>
 			</div>
