@@ -7,7 +7,7 @@ import { PayoffProfile } from './payOffProfile'
 import ERC20 from '../abi/ERC20ABI.json'
 import Web3 from 'web3'
 import { getAssetImage, getUnderlyingTokenImage } from '../utils/token'
-import { tellorAddress } from '../constant.ts'
+import { tellorAddress } from '../constant'
 
 const PayoffChart = ({
 	pool,
