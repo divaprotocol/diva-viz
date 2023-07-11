@@ -2,10 +2,10 @@ import { TOKEN_WITH_ICONS } from '../constant'
 
 export const getAssetImage = (asset: string, color: 'yellow' | 'green') => {
     if (TOKEN_WITH_ICONS[asset]) {
-        return `./font-images/${TOKEN_WITH_ICONS[asset.toUpperCase()]}.svg`
+        return `/font-images/${TOKEN_WITH_ICONS[asset.toUpperCase()]}.svg`
     } else {
         const firstLetter = asset[0].toLowerCase()
-        return `./font-images/alphabets-${color}/${firstLetter}_${color}.svg`
+        return `/font-images/alphabets-${color}/${firstLetter}_${color}.svg`
     }
 }
 

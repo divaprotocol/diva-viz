@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import { staggerContainer, textVariant } from '../utils/motion'
 import { motion } from 'framer-motion'
 import { isUrl } from '../utils/misc'
+import { Select, Option } from '@material-tailwind/react'
+import { CHAIN_INFO } from '../constant'
 
 const home = () => {
 	const [isButtonClicking, setIsButtonClicking] = React.useState<boolean>(false)
@@ -11,25 +13,30 @@ const home = () => {
 	const inputElRef = useRef(null)
 	const router = useRouter()
 	const [isLong, setIsLong] = useState(true)
+	const [isDropDownDisable, setIsDropDownDisable] = useState(true)
+	const [selectChainId, setSelectedChainId] = useState<string>('')
 
 	useEffect(() => {
 		inputElRef.current.focus()
 	}, [])
 
 	const handleClick = () => {
-		let ID = inputPoolId
-
 		// checking if the input is a url format
 		const isUrlFormat = isUrl(inputPoolId)
+		let hash = inputPoolId
+		let chainId = selectChainId
+
 		if (isUrlFormat) {
 			const segments = inputPoolId.split('/')
-			const lastSegment = segments[segments.length - 1]
-			ID = lastSegment
+			const hashAddress = segments[segments.length - 1]
+			const chain = segments[segments.length - 2]
+			hash = hashAddress
+			chainId = chain
 		}
 
-		if (inputPoolId.length > 0 && ID.length) {
+		if (inputPoolId.length > 0 && inputPoolId.length) {
 			router.push({
-				pathname: `/${ID}`,
+				pathname: `/id/${chainId}/${hash}`,
 			})
 		} else {
 			setError('Please enter a pool hash')
@@ -39,6 +46,15 @@ const home = () => {
 			setTimeout(() => {
 				setError('')
 			}, 3000)
+		}
+	}
+
+	const handleInputChange = async (e) => {
+		setInputPoolId(e.target.value)
+		if (!isUrl(e.target.value)) {
+			setIsDropDownDisable(false)
+		} else {
+			setIsDropDownDisable(true)
 		}
 	}
 
@@ -87,9 +103,29 @@ const home = () => {
 							type="text"
 							placeholder="ENTER YOUR OFFER HASH HERE"
 							value={inputPoolId}
-							onChange={(e) => setInputPoolId(e.target.value)}
+							onChange={handleInputChange}
 							ref={inputElRef}
 						/>
+
+						{!isUrl(inputPoolId) && inputPoolId.length > 0 && (
+							<div className="w-full mt-4 font-text font-bold text-[#8A8A8A]">
+								<Select
+									label="Select the Chain"
+									color="gray"
+									disabled={isDropDownDisable}
+									className={`rounded-none font-text font-bold text-[#8A8A8A]`}
+									onChange={(res) => setSelectedChainId(res)}>
+									{Object.entries(CHAIN_INFO).map(([key, value]) => (
+										<Option
+											key={value.chainID}
+											value={value.chainID.toString()}
+											className="font-text">
+											{value.name}
+										</Option>
+									))}
+								</Select>
+							</div>
+						)}
 					</div>
 				</motion.div>
 				{/* commented for future use */}

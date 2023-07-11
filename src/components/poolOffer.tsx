@@ -7,6 +7,7 @@ import { PayoffProfile } from './payOffProfile'
 import ERC20 from '../abi/ERC20ABI.json'
 import Web3 from 'web3'
 import { getAssetImage, getUnderlyingTokenImage } from '../utils/token'
+import { tellorAddress } from '../constant'
 
 const PayoffChart = ({
 	pool,
@@ -141,7 +142,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					{/* Left side */}
 					<div className="mt-4">
 						<div className="absolute top-0 left-0 pointer-events-none">
-							<img src={'./bg-pattern.svg'} alt="pattern-wave" />
+							<img src={'/bg-pattern.svg'} alt="pattern-wave" />
 						</div>
 
 						<div className="pt-4 font-text ">
@@ -201,7 +202,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 							</div>
 							<div className="flex items-center">
 								<div className="mr-2">
-									<img src="./shine-color-icons.svg" alt="max" />
+									<img src="/shine-color-icons.svg" alt="max" />
 								</div>
 								<div className="font-text">
 									<div className="text-xl text-[#1AD3FF]"> Max yield</div>
@@ -215,7 +216,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 						<div className="mt-8 flex flex-col gap-3 w-[520px]">
 							<div className="border-[0.4px] border-[#8A8A8A] flex text-xs px-4 py-2 items-center gap-1 font-text">
 								<div className="mr-3">
-									<img src="./up-arrow.svg" alt="up" />
+									<img src="/up-arrow.svg" alt="up" />
 								</div>
 								<div className="text-[#76FFC6]">
 									<strong>
@@ -240,7 +241,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 							</div>
 							<div className="border-[0.4px] border-[#8A8A8A] flex text-xs px-4 py-2 items-center gap-1 font-text">
 								<div className="mr-2">
-									<img src="./equal-arrow.svg" alt="up" />
+									<img src="/equal-arrow.svg" alt="up" />
 								</div>
 								<div className="text-[#89A5E3]">
 									{isLong ? (
@@ -267,7 +268,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 
 							<div className="border-[0.4px] border-[#8A8A8A] flex text-xs px-4 py-2 items-center gap-1 font-text">
 								<div className="mr-3">
-									<img src="./down-arrow.svg" alt="up" />
+									<img src="/down-arrow.svg" alt="up" />
 								</div>
 								<div className="text-[#F47564]">
 									<strong>
@@ -305,7 +306,15 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 						{/* data provider */}
 						<div className="flex gap-2 items-center justify-center  text-xs font-text bg-[#FFFFFF] border-[0.4px] border-[#0D0D0D] w-fit h-[33px] mt-6 px-2">
 							<div className="text-black font-medium">Data Provider:</div>
-							<div className="text-black text-xs">{pool.dataSourceName}</div>
+							<div className="text-black text-xs">
+								<div>
+									{pool.dataSourceName === tellorAddress ? (
+										<img src="/tellor-data.svg" alt="tellor" />
+									) : (
+										pool.dataSourceName
+									)}
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -322,12 +331,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 						<div className="mt-8">
 							<div className="font-text flex items-center justify-end gap-3">
 								<div>
-									<img
-										src="./diva_logo.svg"
-										alt="diva"
-										width={50}
-										height={34}
-									/>
+									<img src="/diva_logo.svg" alt="diva" width={50} height={34} />
 								</div>
 								<div>
 									<div className="text-[#1AD3FF] text-xs">Powered by</div>
@@ -341,10 +345,11 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					{/* horizontal line  */}
 					<div className="border-[0.4px] border-[#8A8A8A] w-full"></div>
 					<div className="font-text text-[#8A8A8A] text-[10px] mt-1">
-						Risk Disclaimer: Website and the information contained herein is not
-						intended to be a source of advice or credit analysis with respect to
-						the material presented, and the information and/or documents
-						contained in this website do not constitute investment advice.
+						Risk Disclaimer: Participation in derivative contracts carries risks, including the potential 
+						loss of invested capital. It is important to thoroughly review and understand the contract 
+						terms, conditions, and associated risks. Only invest funds that you are willing to lose. 
+						The issuer of this offer does not guarantee specific outcomes or results. Users are advised 
+						to exercise caution and conduct their own due diligence when making investment decisions.
 					</div>
 				</div>
 			</div>
@@ -353,7 +358,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 				<a
 					className="underline"
 					target={'_blank'}
-					href={`https://app.diva.finance/offer/${pool.offerHash}`}>{` https://app.diva.finance/offer/${pool.offerHash}`}</a>
+					href={`https://app.diva.finance/offer/${pool.chainId}/${pool.offerHash}`}>{` https://app.diva.finance/offer/${pool.chainId}/${pool.offerHash}`}</a>
 			</div>
 
 			<div className="mt-2 flex gap-2">
@@ -370,7 +375,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					}}
 					className="flex items-center justify-center gap-2 text-[#8A8A8A] border-[1px] border-[#8A8A8A] px-3 py-1 font-text">
 					<div>
-						<img src="./download-vector.svg" alt="download" />
+						<img src="/download-vector.svg" alt="download" />
 					</div>
 					<div>Download</div>
 				</button>
@@ -378,7 +383,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					onClick={() => {
 						setIsCopyButtonClick(true)
 						navigator.clipboard.writeText(
-							`https://divaviz.com/${pool.offerHash}}`
+							`https://divaviz.com/id/${pool.chainId}/${pool.offerHash}}`
 						)
 						setTimeout(() => {
 							setIsCopyButtonClick(false)
@@ -390,7 +395,7 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 					) : (
 						<>
 							<div>
-								<img src="./copy-vector.svg" alt="copy" />
+								<img src="/copy-vector.svg" alt="copy" />
 							</div>
 							<div>Copy Link</div>
 						</>
@@ -398,11 +403,11 @@ const PoolOffer = ({ pool }: { pool: any }) => {
 				</button>
 
 				<TwitterShareButton
-					url={`https://app.diva.finance/offer/${pool.offerHash}`}
+					url={`https://app.diva.finance/offer/${pool.chainId}/${pool.offerHash}`}
 					title={'Sharing the DIVA ViZ'}>
 					<div className="flex items-center justify-center gap-2 text-[#8A8A8A] border-[1px] border-[#8A8A8A] px-3 py-1 font-text">
 						<div>
-							<img src="./twitter-logo.svg" alt="twitter" />
+							<img src="/twitter-logo.svg" alt="twitter" />
 						</div>
 						<div>Share on Twitter</div>
 					</div>
